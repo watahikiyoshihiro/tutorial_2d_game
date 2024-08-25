@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://vc4xr4nuvctx"]
+
+[ext_resource type="PackedScene" uid="uid://dre8pt8v8p6xd" path="res://scene/unit/cube_character.tscn" id="1_2k0fd"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_e7h4s"]
+a = Vector2(1000, 250)
+b = Vector2(-1000, 250)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_606yp"]
+
+[node name="Stage0" type="Node2D"]
+
+[node name="Enviroment" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="Enviroment"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Ground"]
+position = Vector2(128, 96)
+shape = SubResource("SegmentShape2D_e7h4s")
+
+[node name="ColorRect" type="ColorRect" parent="Enviroment/Ground/CollisionShape2D"]
+offset_left = -4880.0
+offset_top = 248.0
+offset_right = 5120.0
+offset_bottom = 5248.0
+color = Color(0.456369, 0.706523, 0.603524, 1)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="CubeCharacter" parent="Enviroment/Ground" instance=ExtResource("1_2k0fd")]
+position = Vector2(112, 328)
+floor_snap_length = 10.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/StaticBody2D"]
+position = Vector2(80, 328)
+rotation = 0.436332
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_606yp")
+
+[node name="ColorRect" type="ColorRect" parent="Enviroment/StaticBody2D/CollisionShape2D"]
+offset_left = 50.0
+offset_top = 328.0
+offset_right = 90.0
+offset_bottom = 368.0
+rotation = 0.436332
+color = Color(1, 0.39, 0.654333, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="unit" type="Node2D" parent="."]

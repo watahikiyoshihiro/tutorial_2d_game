@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dre8pt8v8p6xd"]
+
+[ext_resource type="Script" path="res://scene/unit/cube_character.gd" id="1_2wlqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwxlv"]
+
+[node name="CubeCharacter" type="CharacterBody2D"]
+script = ExtResource("1_2wlqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qwxlv")
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0.546723, 0.609815, 1, 1)
+metadata/_edit_use_anchors_ = true
